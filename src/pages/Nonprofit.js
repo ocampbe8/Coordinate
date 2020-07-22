@@ -1,5 +1,5 @@
-import React from 'react'
-
+import React, { Component } from 'react'
+import {Button} from 'react-bootstrap'
 import axios from 'axios'
 
 const api = axios.create({
@@ -22,10 +22,13 @@ export class Nonprofit extends Component {
     render(){
         return(
             <div>
-                <img src="http://placeimg.com/150/150" rounded></img>
-                <h1>Demo Nonprofit:</h1>
-                {this.state.events.map(event => <div><h1 key = {event.id}>{event.name}</h1>
-                <Button href= {'/event'}></Button></div>)}
+                <div class='row'><img src="http://placeimg.com/150/150/animals" rounded></img>
+                <div class = 'col'><h1>Indianapolis ASPCA:</h1><p>Our mission is to care for Indianapolis' displaced animals while find loving homes for each of them! 
+                    Please see below for oppurtunities to help out with our events, we could always use more volunteers! Our building is located at 3400 Northwood Lane,
+                    Indianapolis, IN, 46268!</p></div></div>
+                <div class='row'><h1>Upcoming Events:</h1></div>
+                {this.state.events.map(event => <div class='row'><div class='col-'><h1 key = {event.id}>{event.title}</h1></div>
+                <div class='col-'><Button variant='primary' href= {'/event'}>Go</Button></div><div class='col-xl'></div></div>)}
             </div>
         );
     }

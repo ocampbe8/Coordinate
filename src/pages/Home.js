@@ -8,5 +8,7 @@ export const Home = () => (
             Please take a look at the demo pages we have for this prototype to see our proof of concept and what we
             envision for this app. Thank you!
         </p>
+        <a href='/Volunteer'>Click Here to See the Demo Volunteering View</a>
+        <a href='/NonProfit'>Click Here to see the Demo Non-Profit View</a>
     </div>
 )

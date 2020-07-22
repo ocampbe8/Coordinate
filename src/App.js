@@ -7,6 +7,7 @@ import {Volunteer} from './pages/Volunteer';
 import {NotFound} from './pages/NotFound';
 import {Layout} from './components/Layout';
 import axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { render } from '@testing-library/react';
 
 const api = axios.create({
