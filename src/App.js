@@ -6,7 +6,12 @@ import {Nonprofit} from './pages/Nonprofit';
 import {Volunteer} from './pages/Volunteer';
 import {NotFound} from './pages/NotFound';
 import {Layout} from './components/Layout';
+import axios from 'axios';
 import { render } from '@testing-library/react';
+
+const api = axios.create({
+  baseURL: 'http://localhost:8080/'
+})
 
 class App extends Component {
   render() {
