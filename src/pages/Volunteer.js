@@ -1,6 +1,15 @@
 import {Button} from 'react-bootstrap'
 import React, { Component } from 'react'
 import axios from 'axios'
+import styled from 'styled-components'
+
+const StyledCol = styled.td`
+    border: 1px solid black;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+`;
 
 const api = axios.create({
     baseURL: 'http://localhost:8080/'
@@ -22,9 +31,12 @@ export class Volunteer extends Component {
     render(){
         return(
             <div>
-                <div class='row'><h1>Non-Profits in your Area:</h1></div>
-                {this.state.nonprofits.map(nonprofit => <div class='row'><div class='col-'><h1 key = {nonprofit.id}>{nonprofit.name}</h1></div>
-                <div class='col-'><Button variant='primary' href= {'/nonprofit'}>Go</Button></div><div class='col-xl'></div></div>)}
+                <div class='row'><h3>Non-Profits in your Area:</h3></div>
+                {this.state.nonprofits.map(nonprofit => 
+                <tr>
+                    <StyledCol><h3 key = {nonprofit.id}>{nonprofit.name}</h3></StyledCol>
+                    <StyledCol><Button variant='primary' href= {'/nonprofit'}>Go</Button></StyledCol>
+                </tr>)}
             </div>
         );
     }

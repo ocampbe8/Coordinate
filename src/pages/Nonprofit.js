@@ -1,6 +1,15 @@
 import React, { Component } from 'react'
 import {Button} from 'react-bootstrap'
 import axios from 'axios'
+import styled from 'styled-components'
+
+const StyledCol = styled.td`
+    border: 1px solid black;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+`;
 
 const api = axios.create({
     baseURL: 'http://localhost:8080/'
@@ -26,9 +35,12 @@ export class Nonprofit extends Component {
                 <div class = 'col'><h1>Indianapolis ASPCA:</h1><p>Our mission is to care for Indianapolis' displaced animals while find loving homes for each of them! 
                     Please see below for oppurtunities to help out with our events, we could always use more volunteers! Our building is located at 3400 Northwood Lane,
                     Indianapolis, IN, 46268!</p></div></div>
-                <div class='row'><h1>Upcoming Events:</h1></div>
-                {this.state.events.map(event => <div class='row'><div class='col-'><h1 key = {event.id}>{event.title}</h1></div>
-                <div class='col-'><Button variant='primary' href= {'/event'}>Go</Button></div><div class='col-xl'></div></div>)}
+                <div class='row'><h3>Upcoming Events:</h3></div>
+                {this.state.events.map(event => 
+                <tr>
+                    <StyledCol><h3 key = {event.id}>{event.title}</h3></StyledCol>
+                    <StyledCol><Button variant='primary' href= {'/event'}>Go</Button></StyledCol>
+                </tr>)}
             </div>
         );
     }

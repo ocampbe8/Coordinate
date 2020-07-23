@@ -1,6 +1,15 @@
 import {Button} from 'react-bootstrap'
 import React, { Component } from 'react'
 import axios from 'axios'
+import styled from 'styled-components'
+
+const StyledCol = styled.td`
+    border: 1px solid black;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+`;
 
 const api = axios.create({
     baseURL: 'http://localhost:8080/'
@@ -19,6 +28,10 @@ export class EventPage extends Component {
         })
     }
 
+    signUp() {
+        alert('Successfully signed up!')
+    }
+
     render(){
         return(
             <div>
@@ -27,9 +40,15 @@ export class EventPage extends Component {
                      where you will get a chance to fall in love with all of our felines! We need assistance in making sure the cats aren't overwhelmed and small party
                       favors to entertain potential adoptees during this event. Our building is located at 3400 Northwood Lane,
                     Indianapolis, IN, 46268!</p></div></div>
-                <div class='row'><h1>We Need:</h1></div>
-                {this.state.requests.map(request => <div class='row'><div class='col-'><h1 key = {request.id}>{request.title}</h1></div>
-                <div class='col-'><Button onClick = {alert('Successfully signed up!')} variant='primary'>Sign Up</Button></div><div class='col-xl'></div></div>)}
+                <div class='row'><h3>We Need:</h3></div>
+                {this.state.requests.map(request => 
+                <tr>
+                    <StyledCol><h3 key = {request.id}>{request.title}</h3></StyledCol>
+                    <StyledCol><h3>{request.description}</h3></StyledCol>
+                    <StyledCol><h3>{request.quantityobtained}/{request.quantityneeded} Signed Up</h3></StyledCol>
+                    <StyledCol><Button onClick = {this.signUp} variant='primary'>Sign Up</Button></StyledCol>
+                    
+                </tr>)}
             </div>
         );
     }
