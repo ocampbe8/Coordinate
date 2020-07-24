@@ -11,6 +11,14 @@ const StyledCol = styled.td`
     padding-bottom: 5px;
 `;
 
+const StyledHead = styled.th`
+    border: 1px solid black;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+`;
+
 const api = axios.create({
     baseURL: 'http://localhost:8080/'
   })
@@ -41,6 +49,12 @@ export class EventPage extends Component {
                       favors to entertain potential adoptees during this event. Our building is located at 3400 Northwood Lane,
                     Indianapolis, IN, 46268!</p></div></div>
                 <div class='row'><h3>We Need:</h3></div>
+                <tr>
+                    <StyledHead>Request</StyledHead>
+                    <StyledHead>Info</StyledHead>
+                    <StyledHead>Status</StyledHead>
+                    <StyledHead>Sign Up</StyledHead>
+                </tr>
                 {this.state.requests.map(request => 
                 <tr>
                     <StyledCol><h3 key = {request.id}>{request.title}</h3></StyledCol>

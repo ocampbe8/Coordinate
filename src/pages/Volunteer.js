@@ -11,6 +11,14 @@ const StyledCol = styled.td`
     padding-bottom: 5px;
 `;
 
+const StyledHead = styled.th`
+    border: 1px solid black;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+`;
+
 const api = axios.create({
     baseURL: 'http://localhost:8080/'
   })
@@ -32,6 +40,10 @@ export class Volunteer extends Component {
         return(
             <div>
                 <div class='row'><h3>Non-Profits in your Area:</h3></div>
+                <tr>
+                    <StyledHead>Non-Profit</StyledHead>
+                    <StyledHead>Go to Page</StyledHead>
+                </tr>
                 {this.state.nonprofits.map(nonprofit => 
                 <tr>
                     <StyledCol><h3 key = {nonprofit.id}>{nonprofit.name}</h3></StyledCol>
